@@ -1,4 +1,14 @@
 /*================ Links & Buttons ================*/
+a {
+  color: $color-body-text;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $color-secondary;
+  }
+}
+
 .btn {
   @include prefix('user-select', 'none', moz ms webkit spec);
   @include prefix(appearance, none, webkit moz spec);
@@ -9,4 +19,17 @@
   vertical-align: middle;
   white-space: nowrap;
   border: 0;
+  text-align: center;
+  color: $color-button-text;
+  background: $color-primary;
+  border-radius: 0;
+  padding: .214em 2.14em;
+  text-transform: lowercase;
+  font-style: italic;
+  font-size: .878rem;
+
+  &:hover,
+  &:focus {
+    background: $color-secondary;
+  }
 }

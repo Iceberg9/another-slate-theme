@@ -8,54 +8,64 @@
     "theme_support_url": "https://github.com/Shopify/slate"
   },
   {
-    "name": "Typography",
-    "settings": [
-      {
-        "type": "select",
-        "id": "type_base_size",
-        "label": "Base size",
-        "default": "16px",
-        "options": [
-          {
-            "value": "14px",
-            "label": "14px"
-          },
-          {
-            "value": "15px",
-            "label": "15px"
-          },
-          {
-            "value": "16px",
-            "label": "16px"
-          },
-          {
-            "value": "17px",
-            "label": "17px"
-          }
-        ]
-      }
-    ]
-  },
+      "name": "Typography",
+      "settings": [
+        {
+          "type": "select",
+          "id": "type_base_size",
+          "label": "Base size",
+          "default": "15px",
+          "options": [
+            {
+              "value": "15px",
+              "label": "15px"
+            }
+          ]
+        }
+      ]
+    },
   {
     "name": "Colors",
     "settings": [
       {
         "type": "header",
-        "content": "General colors"
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_body_bg",
+        "label": "Background",
+        "default": "#d8dce0"
+      },
+      {
+        "type": "color",
+        "id": "color_borders",
+        "label": "Lines and borders",
+        "default": "#979797"
+      },
+      {
+        "type": "color",
+        "id": "color_body_text",
+        "label": "Body text",
+        "default": "#53585f"
       },
       {
         "type": "color",
         "id": "color_primary",
         "label": "Primary color",
-        "default": "#000",
-        "info": "Used for text links, and primary buttons"
+        "default": "#4a4a4a"
       },
       {
         "type": "color",
-        "id": "color_body_text",
-        "label": "Text color",
-        "default": "#000",
-        "info": "Color used for content and paragraph text"
+        "id": "color_secondary",
+        "label": "Secondary color",
+        "default": "#cea27b"
+      },
+      {
+        "type": "color",
+        "id": "color_button_text",
+        "label": "Button text",
+        "default": "#ffffff"
       }
     ]
   },

@@ -96,6 +96,7 @@
         type="submit"
         name="add"
         data-add-to-cart
+        class="btn"
         {% unless product.available %}disabled="disabled"{% endunless %}
         {% if section_onboarding %}disabled="disabled"{% endif %}>
           <span data-add-to-cart-text>

@@ -1,31 +1,33 @@
 /*================ Color Variables ================*/
 $color-primary: {{ settings.color_primary }};
+$color-secondary: {{ settings.color_secondary }};
+$color-button-text: {{ settings.color_button_text }};
 
 // Text colors
 $color-body-text: {{ settings.color_body_text }};
 
 // Backgrounds
-$color-body: #fff;
+$color-body: {{ settings.color_body_bg }};
 
 // Border colors
-$color-border: #f6f6f6;
+$color-border: {{ settings.color_borders }};
 
 // Helper colors for form error states
 $color-disabled: #000;
 $color-disabled-border: #000;
 $color-error: #000;
-$color-error-bg: #000;
+$color-error-bg: #9d1818;
 $color-success: #000;
 $color-success-bg: #000;
 
 /*================ Typography Variables ================*/
 $font-weight-normal: 400;
-$font-weight-bold: 700;
+$font-weight-bold: $font-weight-normal;
 
-$font-stack-header: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-stack-header: 'Playfair Display', serif;
 $font-weight-header: $font-weight-bold;
 
-$font-stack-body: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-stack-body: 'Playfair Display', serif;
 $font-size-base: {{ settings.type_base_size }};
 
 /*============================================================================
