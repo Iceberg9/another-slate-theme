@@ -1,0 +1,25 @@
+.site-logo__image {
+  display: none;
+
+  @include media-query($large-up) {
+    display: inline;
+  }
+
+  .site-header--sticky & {
+    @include media-query($large-up) {
+      display: none;
+    }
+  }
+}
+
+.site-logo__image--alt {
+  @include media-query($large-up) {
+    display: none;
+  }
+
+  .site-header--sticky & {
+    @include media-query($large-up) {
+      display: inline;
+    }
+  }
+}

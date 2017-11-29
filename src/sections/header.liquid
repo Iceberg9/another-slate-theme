@@ -1,12 +1,12 @@
 <style>
   {% if section.settings.logo != blank %}
-    .site-header__logo-image {
+    .site-logo--image {
       max-width: {{ section.settings.logo_max_width }}px;
     }
   {% endif %}
 </style>
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
-  <header role="banner" class="site-header">
+  <header id="SiteHeader" role="banner" class="site-header">
     <a href="#" class="site-header__icon site-header__icon--toggle-nav">
       {% include 'icon-hamburger' %}
       <span class="icon-fallback-text">{{ 'layout.cart.title' | t }}</span>
@@ -17,14 +17,16 @@
     {% else %}
       <div class="site-header__brand" itemscope itemtype="http://schema.org/Organization">
     {% endif %}
-        <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+        <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-logo--image{% endif %}">
           {% if section.settings.logo != blank %}
             {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
             <img src="{{ section.settings.logo | img_url: image_size }}"
                  alt="{{ section.settings.logo.alt | default: shop.name }}"
+                 class="site-logo__image"
                  itemprop="logo">
             {% if section.settings.logo_alt != blank %}
             <img src="{{ section.settings.logo_alt | img_url: '23x' }}"
+                 class="site-logo__image--alt"
                  alt="{{ section.settings.logo.alt | default: shop.name }}"
                  itemprop="logo">
             {% endif %}
@@ -39,30 +41,7 @@
     {% endif %}
 
     <nav class="site-header__nav" role="navigation">
-      <ul class="site-nav">
-        {% for link in linklists[section.settings.main_linklist].links %}
-          {%- assign child_list_handle = link.title | handleize -%}
-          {% if menus[child_list_handle].links != blank %}
-            <li class="site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}">
-              <a href="{{ link.url }}" class="site-nav__link">
-                {{ link.title }}
-                {% include 'icon-arrow-down' %}
-              </a>
-              <ul class="site-nav__submenu">
-                {% for childlink in menus[child_list_handle].links %}
-                  <li {% if childlink.active %}class="site-nav--active"{% endif %}>
-                    <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </li>
-          {% else %}
-            <li {% if link.active %}class="site-nav--active"{% endif %}>
-              <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+      {% include 'site-nav' %}
     </nav>
 
     <a class="site-header__icon site-header__icon--cart" href="/cart">

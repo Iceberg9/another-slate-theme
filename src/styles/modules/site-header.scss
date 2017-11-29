@@ -1,9 +1,88 @@
 /*================ Site Header ================*/
-.site-logo {
-  display: block;
+.site-header {
+  @include display-flexbox();
+  @include align-items(center);
+  padding: 1.125rem 1rem;
+  background: rgba($color-body, 0.9);
+  height: $height-mobile-nav;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-  img {
-    display: block;
-    width: 100%;
+  @include media-query($large-up) {
+    position: static;
+    @include flex-direction(column);
+    padding-top: 5.3rem;
+    padding-bottom: 3.3rem;
+    height: auto;
+  }
+}
+
+.site-header__nav {
+
+  @include media-query($medium-down) {
+    display: none;
+  }
+
+  .site-header--sticky & {
+    @include media-query($large-up) {
+      @include flex-grow(1);
+    }
+  }
+}
+
+.site-header__icon {
+  @extend %site-header__element;
+}
+
+.site-header__brand {
+  @extend %site-header__element;
+  @extend h1;
+  line-height: 1;
+  text-align: center;
+  margin: 0;
+  line-height: normal;
+
+  @include media-query($large-up) {
+    text-align: left;
+    margin-bottom: 2.6rem;
+  }
+
+  .site-header--sticky & {
+    @include media-query($large-up) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.site-header__icon--cart {
+  text-align: right;
+
+  @include media-query($large-up) {
+    display: none;
+  }
+
+  .site-header--sticky & {
+    @include media-query($large-up) {
+      display: block;
+    }
+  }
+}
+
+.site-header__icon--toggle-nav {
+  @include media-query($large-up) {
+    display: none;
+  }
+}
+
+.site-header--sticky {
+  @include media-query($large-up) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1.125rem 1rem;
+    @include flex-direction(row);
   }
 }
