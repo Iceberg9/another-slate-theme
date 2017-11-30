@@ -22,8 +22,9 @@
   {% endif %}
 
   <header id="SiteHeader" role="banner" class="site-header">
-    <a href="#" class="site-header__icon site-header__icon--toggle-nav">
-      {% include 'icon-hamburger' %}
+    <a href="#" id="ToggleNav" class="site-header__icon site-header__icon--toggle-nav">
+      <span id="Hamburger" class="hamburger">
+      </span>
       <span class="icon-fallback-text">{{ 'layout.cart.title' | t }}</span>
     </a>
 
@@ -60,9 +61,35 @@
     </nav>
 
     <a class="site-header__icon site-header__icon--cart" href="/cart">
-      {% include 'icon-cart' %}
+      {% include 'icon-bag-full-color' %}
       <span class="icon-fallback-text">{{ 'layout.cart.title' | t }}</span>
     </a>
+
+    <ul id="MobileNav" class="mobile-nav">
+      {% for link in linklists[section.settings.main_linklist].links %}
+        {%- assign child_list_handle = link.title | handleize -%}
+        {% if menus[child_list_handle].links != blank %}
+          <li class="mobile-nav__item mobile-nav__item--has-submenu{% if link.active %} mobile-nav__item--active{% endif %}">
+            <a href="{{ link.url }}">
+              {{ link.title }}
+              {% include 'icon-chevron-right' %}
+              {% include 'icon-chevron-down' %}
+            </a>
+            <ul class="mobile-nav__submenu">
+              {% for childlink in menus[child_list_handle].links %}
+                <li class="mobile-nav__item{% if childlink.active %} mobile-nav__item--active{% endif %}">
+                  <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="mobile-nav__item{% if link.active %} mobile-nav--active{% endif %}">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
 
   </header>
 

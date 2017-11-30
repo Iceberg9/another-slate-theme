@@ -5,9 +5,9 @@
   padding: 1.125rem 1rem;
   background: rgba($color-body, 0.9);
   height: $height-mobile-nav;
+  position: relative;
 
   @include media-query($large-up) {
-    position: relative;
     @include flex-direction(column);
     padding-top: 5.3rem;
     padding-bottom: 3.3rem;
@@ -54,6 +54,7 @@
 
 .site-header__icon--cart {
   text-align: right;
+  margin-top: -.2rem;
 
   @include media-query($large-up) {
     display: none;
@@ -62,6 +63,19 @@
   .site-header--sticky & {
     @include media-query($large-up) {
       display: block;
+    }
+  }
+
+  .icon-bag-full-color {
+    circle,
+    ellipse,
+    g,
+    line,
+    path,
+    polygon,
+    polyline,
+    rect {
+      stroke: $color-body-text;
     }
   }
 }

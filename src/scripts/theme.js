@@ -21,6 +21,7 @@ window.theme = window.theme || {};
 
 /*================ Modules ================*/
 // =require modules/sticky-header.js
+// =require modules/mobile-nav.js
 
 $(document).ready(function() {
   var sections = new slate.Sections();

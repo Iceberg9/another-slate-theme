@@ -1,0 +1,37 @@
+.hamburger {
+  display: block;
+  width: 20px;
+  height: 14px;
+  position: relative;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background: $color-body-text;
+    display: block;
+    left: 0;
+    right: 0;
+  }
+
+  &:after {
+    top: 0;
+  }
+
+  &:before {
+    bottom: 0;
+  }
+}
+
+.hamburger--collapsed {
+  &:after {
+    display: none;
+  }
+
+  &:before {
+    transition: all .3s ease;
+    @include prefix(transform, rotate(90deg), ms webkit spec);
+    bottom: 5px;
+  }
+}

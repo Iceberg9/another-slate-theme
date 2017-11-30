@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="20px" viewBox="0 0 22 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Bag</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Bag" transform="translate(0.000000, 1.000000)" stroke="#444444">
+            <path d="M15.9228398,2.23008336 C15.7791494,2.03605126 15.6229946,1.85180657 15.4555585,1.67853262 C15.3288032,1.54735782 15.1955826,1.42247041 15.0564101,1.30438379 C14.8276644,1.11029508 14.5828398,0.934578443 14.324216,0.779513455 C13.4986952,0.284549999 12.5325777,0 11.5,0 C10.7421246,0 10.0200516,0.153288198 9.36309374,0.430551778 C7.38696327,1.26456118 6,3.22030928 6,5.5" id="Oval" stroke-linecap="round" stroke-linejoin="round"></path>
+            <rect id="Rectangle" stroke-width="2" x="1" y="6" width="20" height="11.75" rx="1"></rect>
+        </g>
+    </g>
+</svg>
