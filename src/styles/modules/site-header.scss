@@ -7,7 +7,7 @@
   height: $height-mobile-nav;
 
   @include media-query($large-up) {
-    position: static;
+    position: relative;
     @include flex-direction(column);
     padding-top: 5.3rem;
     padding-bottom: 3.3rem;
