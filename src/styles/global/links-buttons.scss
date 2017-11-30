@@ -26,7 +26,7 @@ a {
   padding: .214em 2.14em;
   text-transform: lowercase;
   font-style: italic;
-  font-size: .878rem;
+  font-size: $font-size-small;
 
   &:hover,
   &:focus {

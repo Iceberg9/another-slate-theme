@@ -2,7 +2,8 @@ theme.StickyHeader = (function() {
   'use strict';
 
   var selectors = {
-    siteHeader: '#SiteHeader'
+    siteHeader: '#SiteHeader',
+    notificationBar: '#NotificationBar'
   };
 
   var config = {
@@ -16,7 +17,8 @@ theme.StickyHeader = (function() {
     cache = {
       $body: $('body'),
       $window: $(window),
-      $siteHeader: $(selectors.siteHeader)
+      $siteHeader: $(selectors.siteHeader),
+      $notificationBar: $(selectors.notificationBar)
     };
   }
 
@@ -30,6 +32,10 @@ theme.StickyHeader = (function() {
 
   function getThreshold() {
     var threshold = cache.$siteHeader.outerHeight();
+
+    if (cache.$notificationBar.length) {
+      threshold += cache.$notificationBar.outerHeight();
+    }
 
     if (config.lastThreshold > 0) {
       threshold = config.lastThreshold;
@@ -56,12 +62,13 @@ theme.StickyHeader = (function() {
 
     config.isActive = true;
 
-    var offset = cache.$siteHeader.outerHeight();
+    var offset = getThreshold();
 
     config.lastThreshold = offset;
 
     cache.$siteHeader.addClass(config.siteHeaderStickyClass);
     cache.$body.css('padding-top', offset);
+    cache.$notificationBar.hide();
   }
 
   function unstickNav() {
@@ -75,6 +82,7 @@ theme.StickyHeader = (function() {
 
     cache.$siteHeader.removeClass(config.siteHeaderStickyClass);
     cache.$body.css('padding-top', '');
+    cache.$notificationBar.show();
   }
 
   function unload() {

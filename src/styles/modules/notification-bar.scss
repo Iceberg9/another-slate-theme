@@ -1,0 +1,19 @@
+.notification-bar {
+  background: $color-primary;
+}
+
+.notification-bar__message {
+  display: block;
+  height: $height-mobile-nav;
+  line-height: $height-mobile-nav;
+  font-size: $font-size-small;
+  font-style: italic;
+  text-align: center;
+  color: $color-button-text;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $color-button-text;
+  }
+}

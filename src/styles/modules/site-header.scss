@@ -5,10 +5,6 @@
   padding: 1.125rem 1rem;
   background: rgba($color-body, 0.9);
   height: $height-mobile-nav;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
 
   @include media-query($large-up) {
     position: static;
@@ -77,12 +73,11 @@
 }
 
 .site-header--sticky {
-  @include media-query($large-up) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 1.125rem 1rem;
-    @include flex-direction(row);
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.125rem 1rem;
+  @include flex-direction(row);
+  height: $height-mobile-nav;
 }

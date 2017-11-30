@@ -6,6 +6,21 @@
   {% endif %}
 </style>
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
+
+  {% if section.settings.message %}
+    <div id="NotificationBar" class="notification-bar">
+      {% if section.settings.message %}
+        {% if section.settings.message_link != blank %}
+          <a href="{{ section.settings.message_link }}" class="notification-bar__message">
+            {{ section.settings.message_text | escape }}
+          </a>
+        {% else %}
+          <span class="notification-bar__message">{{ section.settings.message_text | escape }}</span>
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+
   <header id="SiteHeader" role="banner" class="site-header">
     <a href="#" class="site-header__icon site-header__icon--toggle-nav">
       {% include 'icon-hamburger' %}
@@ -78,6 +93,24 @@
         "id": "main_linklist",
         "label": "Menu",
         "default": "main-menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "message",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "message_text",
+        "label": "Announcement text",
+        "default": "Announce something here"
+      },
+      {
+        "type": "url",
+        "id": "message_link",
+        "label": "Announcement link",
+        "info": "Optional"
       }
     ]
   }

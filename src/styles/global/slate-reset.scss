@@ -17,14 +17,6 @@ select {
   line-height: 1.6;
 }
 
-body {
-  padding-top: $height-mobile-nav;
-
-  @include media-query($large-up) {
-    padding-top: 0;
-  }
-}
-
 a:focus {
   color: inherit;
 }
