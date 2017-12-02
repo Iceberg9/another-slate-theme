@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  font-size: $font-size-base;
+}
+
 body,
 input,
 textarea,
@@ -12,7 +17,6 @@ button,
 select {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
-  font-size: $font-size-base;
   font-family: $font-stack-body;
   line-height: 1.6;
 }
@@ -88,14 +92,17 @@ h6 {
 }
 
 h1 {
-  font-size: 1.138rem;
+  font-size: 1.215rem;
 }
 
 h2 {
+  font-size: 1.138rem;
+}
+
+h3 {
   font-size: 1.067rem;
 }
 
-h3,
 h4 {
   font-size: 1rem;
 }

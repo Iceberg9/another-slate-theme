@@ -43,6 +43,11 @@
       "title": "Search for products on our site",
       "placeholder": "Search our store",
       "submit": "Search"
+    },
+    "newsletter_form": {
+      "newsletter_email": "type in your email here",
+      "submit": "send",
+      "confirmation": "Thanks for subscribing"
     }
   },
   "blogs": {
@@ -240,6 +245,7 @@
     "footer": {
       "social_platform": "{{ name }} on {{ platform }}",
       "copyright": "Copyright",
+      "newsletter_title": "Sign up to receive the best of us delivered straight to your inbox",
       "payment_methods": "Payment methods accepted"
     }
   },

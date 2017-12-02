@@ -68,3 +68,11 @@
   z-index: $z-index-skip-to-content;
   transition: none;
 }
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.small {
+  font-size: $font-size-small;
+}

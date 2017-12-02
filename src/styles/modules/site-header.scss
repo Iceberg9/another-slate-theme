@@ -54,7 +54,7 @@
 
 .site-header__icon--cart {
   text-align: right;
-  margin-top: -.2rem;
+  margin-top: -.3rem;
 
   @include media-query($large-up) {
     display: none;
@@ -94,4 +94,9 @@
   padding: 1.125rem 1rem;
   @include flex-direction(row);
   height: $height-mobile-nav;
+
+  @include media-query($large-up) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }
