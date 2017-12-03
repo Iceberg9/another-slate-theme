@@ -1,0 +1,17 @@
+.template-index {
+  .shopify-section:first-of-type {
+    > div {
+      margin-top: 0;
+    }
+
+    & + .shopify-section {
+      > div {
+        margin-top: 2.6rem;
+
+        @include media-query($large-up) {
+          margin-top: 6.6rem;
+        }
+      }
+    }
+  }
+}
