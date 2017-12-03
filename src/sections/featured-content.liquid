@@ -2,22 +2,20 @@
   <p>Dolor in velit a quasi totam quidem Numquam dolorem veniam fugit officia sit Nam ut provident quas nemo voluptatem? Consequatur minima adipisci consectetur fugiat quidem. Dolorum ad nam aliquid quo?</p>
 {% endcapture %}
 
-<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
-  <div class="custom-content">
-    <input type="checkbox" id="toggle-{{ section.id }}" class="custom-content__check">
-    <div class="custom-content__excerpt rte">
-      <label class="custom-content__label" for="toggle-{{ section.id }}"></label>
+<div class="custom-content">
+  <input type="checkbox" id="toggle-{{ section.id }}" class="custom-content__check">
+  <div class="custom-content__excerpt rte">
+    <label class="custom-content__label" for="toggle-{{ section.id }}"></label>
 
-      {% if section.settings.excerpt != blank %}
-        {{ section.settings.excerpt }}
-      {% endif %}
+    {% if section.settings.excerpt != blank %}
+      {{ section.settings.excerpt }}
+    {% endif %}
 
-      {% include 'icon-chevron-right' %}
-      {% include 'icon-chevron-down' %}
-    </div>
-    <div class="custom-content__page rte">
-      {{ pages[settings.page].content | default: page_example }}
-    </div>
+    {% include 'icon-chevron-right' %}
+    {% include 'icon-chevron-down' %}
+  </div>
+  <div class="custom-content__page rte">
+    {{ pages[settings.page].content | default: page_example }}
   </div>
 </div>
 
