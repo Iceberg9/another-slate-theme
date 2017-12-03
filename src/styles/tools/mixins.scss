@@ -198,3 +198,7 @@
   top: 50%;
   @include prefix(transform, translateY(-50%), ms webkit spec);
 }
+
+@mixin transition($transition) {
+  @include prefix(transition, $transition, ms webkit spec);
+}

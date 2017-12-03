@@ -37,11 +37,19 @@
           "settings": {
             "collection": "frontpage"
           }
+        },
+        "featured-content": {
+          "type": "featured-content",
+          "settings": {
+            "excerpt": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "page": "frontpage"
+          }
         }
       },
       "content_for_index": [
         "gallery",
-        "featured-products"
+        "featured-products",
+        "featured-content"
       ]
     }
   }
