@@ -18,11 +18,11 @@
         left: 2.3rem;
         right: 2.3rem;
         height: 2px;
-        background: $color-border;
+        background: $color-body-text;
         position: absolute;
         bottom: -.4rem;
         display: block;
-        z-index: 1;
+        z-index: $z-index-dropdown + 1;
       }
     }
   }
