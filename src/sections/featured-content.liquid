@@ -15,7 +15,7 @@
     {% include 'icon-chevron-down' %}
   </div>
   <div class="custom-content__page rte">
-    {{ pages[settings.page].content | default: page_example }}
+    {{ pages[section.settings.page].content | default: page_example }}
   </div>
 </div>
 
