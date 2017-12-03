@@ -4,6 +4,11 @@
   padding-left: 1.46rem;
   padding-right: 1.46rem;
   padding-top: 2rem;
+
+  @include media-query($large-up) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .featured-collection__grid {
