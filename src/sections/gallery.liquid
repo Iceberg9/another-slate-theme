@@ -3,7 +3,7 @@
     {% for block in section.blocks %}
       {% assign block_index = block_index | plus: 1 | default: 1 %}
       {% if block.settings.image != blank %}
-        {% assign img_url = block.settings.image | img_url: '1024x' %}
+        {% assign img_url = block.settings.image | img_url: '800x' %}
       {% else %}
         {% assign img_url = '' %}
       {% endif %}

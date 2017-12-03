@@ -21,6 +21,10 @@
     padding-left: $gallery-gutter;
   }
 
+  img {
+    width: 100%;
+  }
+
   .placeholder-svg {
     position: relative;
   }
@@ -46,11 +50,15 @@
   }
 
   .gallery__image:nth-of-type(2) &:before {
-    padding-top: 50%;
+    @include media-query($medium-up) {
+      padding-top: 50%;
+    }
   }
 
   .gallery__image:nth-of-type(1) &:before {
-    padding-top: calc(100% + #{$gallery-gutter / 2});
+    @include media-query($medium-up) {
+      padding-top: calc(100% + #{$gallery-gutter / 2});
+    }
   }
 
 }
