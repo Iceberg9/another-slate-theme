@@ -1,0 +1,45 @@
+.grid-item {
+  float: left;
+  padding-left: 3.8rem;
+  width: 50%;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  @include media-query($medium-up) {
+    width: 25%;
+  }
+
+  @include media-query($large-up) {
+    padding-left: 1rem;
+  }
+}
+
+.grid-item__image {
+  @extend %image-link__photo;
+}
+
+.grid-item__image-link {
+  @extend %image-link;
+
+  @include media-query($large-up) {
+    max-width: 100px;
+    min-height: 100px;
+  }
+
+  .placeholder-svg {
+    @extend %place-holder-svg-absolute;
+  }
+}
+
+.grid-item__price {
+  @extend %grid-item__price;
+}
+
+.grid-item__title {
+  @extend %grid-item__title;
+
+  @include media-query($large-up) {
+    margin-top: .5rem;
+  }
+}
+

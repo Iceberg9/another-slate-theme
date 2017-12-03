@@ -1,0 +1,73 @@
+<div class="featured-products" data-section-id="{{ section.id }}" data-section-type="featured-products">
+  <div class="featured-products__collection">
+    <div class="featured-collection">
+      {% if section.settings.collection_heading != blank %}
+        <h3 class="featured-collection__headline">{{ section.settings.collection_heading | escape }}</h3>
+      {% endif %}
+
+      <div id="Slider-{{ section.id }}" class="featured-collection__grid">
+        {%- assign collection = collections[section.settings.collection] -%}
+
+        {% for product in collection.products limit: 4 %}
+          {% include 'grid-item' %}
+        {% else %}
+          {% for i in (1..4) %}
+            <div class="grid-item">
+              <a class="grid-item__image-link" href="#">
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+              </a>
+              <span class="grid-item__title">
+                {{ 'homepage.onboarding.product_title' | t }}
+              </span>
+              <span class="grid-item__price">{{ 1999 | money }}</span>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="featured-products__product">
+    {%- assign product = all_products[section.settings.product] -%}
+    {% include 'featured-product' %}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Featured products",
+    "settings": [
+      {
+        "type": "text",
+        "id": "collection_heading",
+        "label": "Collection heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "product_heading",
+        "label": "Product heading",
+        "default": "Featured product"
+      },
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Product"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured products",
+        "category": "Products"
+      }
+    ]
+  }
+
+{% endschema %}

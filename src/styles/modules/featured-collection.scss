@@ -1,0 +1,42 @@
+.featured-collection {
+  background: $white;
+  padding-bottom: 2rem;
+  padding-left: 1.46rem;
+  padding-right: 1.46rem;
+  padding-top: 2rem;
+}
+
+.featured-collection__grid {
+  @include clearfix();
+  margin-left: -3.8rem;
+
+  &.slick-dotted.slick-slider {
+    margin-bottom:  0;
+  }
+
+  .slick-dots {
+    bottom: -.5rem;
+    padding-left: 3.8rem;
+
+    .slick-active {
+      button {
+        &:before {
+          background: $color-primary;
+        }
+      }
+    }
+  }
+
+  @include media-query($large-up) {
+    margin-left: -1rem;
+  }
+}
+
+.featured-collection__headline {
+  @extend %heading-section;
+  margin-bottom: 2.8rem;
+
+  @include media-query($large-up) {
+    margin-bottom: 2rem;
+  }
+}

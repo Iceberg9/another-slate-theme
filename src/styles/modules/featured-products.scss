@@ -1,0 +1,28 @@
+.featured-products {
+  margin-top: 2.6rem;
+
+  @include media-query($large-up) {
+    background: $white;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-top: 6.6rem;
+    @include display-flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+  }
+}
+
+.featured-products__collection {
+  @include media-query($large-up) {
+    width: calc(70% - 100px);
+    max-width: 672px;
+  }
+}
+
+.featured-products__product {
+  @include media-query($large-up) {
+    margin-left: 100px;
+    width: 30%;
+    max-width: 278px;
+  }
+}

@@ -31,10 +31,17 @@
             "gallery-image-2",
             "gallery-image-3"
           ]
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "collection": "frontpage"
+          }
         }
       },
       "content_for_index": [
-        "gallery"
+        "gallery",
+        "featured-products"
       ]
     }
   }

@@ -1,0 +1,21 @@
+{% if product.empty? %}
+  {%- assign onboarding_title = 'homepage.onboarding.product_title' | t -%}
+{% endif %}
+
+<div class="featured-product">
+  {% if section.settings.product_heading != blank %}
+    <h3 class="featured-product__headline">{{ section.settings.product_heading | escape }}</h3>
+  {% endif %}
+  <a class="featured-product__image-link" href="{{ product.url }}">
+    {% if product.featured_image.src != blank %}
+      {{ product.featured_image | img_url: '240x240', crop: center | img_tag: product.title, 'featured-product__image' }}
+    {% else %}
+      {{ 'product-5' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+    {% endif %}
+  </a>
+  <a href="{{ product.url }}" class="featured-product__title">
+    {{ product.title | default: onboarding_title }}
+  </a>
+  <span class="featured-product__price">{{ product.price | default: '1999' | money }}</span>
+  <a class="btn btn--secondary btn--thick btn--padding-x-1" href="{{ product.url }}">{{ 'products.product.shop_now' | t }}</a>
+</div>

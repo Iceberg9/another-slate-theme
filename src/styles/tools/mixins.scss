@@ -192,3 +192,9 @@
   // 2011 (IE 10)
   -ms-flex-pack: $alt-value;
 }
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  @include prefix(transform, translateY(-50%), ms webkit spec);
+}
