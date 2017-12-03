@@ -7,6 +7,7 @@
   position: absolute;
   right: 0;
   text-align: center;
+  z-index: $z-index-dropdown;
 
   .site-nav__item:hover & {
     display: block;

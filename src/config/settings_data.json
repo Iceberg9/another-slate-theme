@@ -3,39 +3,38 @@
   "presets": {
     "Default": {
       "sections": {
-        "collection-list": {
-          "type": "collection-list",
+        "gallery": {
+          "type": "gallery",
           "blocks": {
-            "collection-list-0": {
-              "type": "collection"
+            "gallery-image-0": {
+              "type": "image"
             },
-            "collection-list-1": {
-              "type": "collection"
+            "gallery-image-1": {
+              "type": "image"
             },
-            "collection-list-2": {
-              "type": "collection"
+            "gallery-image-2": {
+              "type": "image",
+              "settings": {
+                "image_width": "25"
+              }
+            },
+            "gallery-image-3": {
+              "type": "image",
+              "settings": {
+                "image_width": "25"
+              }
             }
           },
           "block_order": [
-            "collection-list-0",
-            "collection-list-1",
-            "collection-list-2"
+            "gallery-image-0",
+            "gallery-image-1",
+            "gallery-image-2",
+            "gallery-image-3"
           ]
-        },
-        "featured-collection": {
-          "type": "featured-collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        },
-        "featured-product": {
-          "type": "featured-product"
         }
       },
       "content_for_index": [
-        "collection-list",
-        "featured-collection",
-        "featured-product"
+        "gallery"
       ]
     }
   }

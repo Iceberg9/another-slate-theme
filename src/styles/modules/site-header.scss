@@ -10,7 +10,7 @@
   @include media-query($large-up) {
     @include flex-direction(column);
     padding-top: 5.3rem;
-    padding-bottom: 3.3rem;
+    padding-bottom: 3.7rem;
     height: auto;
   }
 }
@@ -94,6 +94,7 @@
   padding: 1.125rem 1rem;
   @include flex-direction(row);
   height: $height-mobile-nav;
+  z-index: $z-index-stickynav;
 
   @include media-query($large-up) {
     padding-left: 4rem;

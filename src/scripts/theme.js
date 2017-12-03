@@ -14,6 +14,7 @@ window.theme = window.theme || {};
 /*================ Sections ================*/
 // =require sections/product.js
 // =require sections/header-section.js
+// =require sections/gallery.js
 
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
@@ -27,6 +28,7 @@ $(document).ready(function() {
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
   sections.register('header-section', theme.HeaderSection);
+  sections.register('gallery', theme.Gallery);
 
   // Common a11y fixes
   slate.a11y.pageLinkFocus($(window.location.hash));

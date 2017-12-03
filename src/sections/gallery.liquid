@@ -1,0 +1,100 @@
+<div data-section-id="{{ section.id }}" data-section-type="gallery">
+  <div id="Gallery-{{ section.id }}" class="gallery">
+    {% for block in section.blocks %}
+      {% assign block_index = block_index | plus: 1 | default: 1 %}
+      {% if block.settings.image != blank %}
+        {% assign img_url = block.settings.image | img_url: '1024x' %}
+      {% else %}
+        {% assign img_url = '' %}
+      {% endif %}
+
+      <style>
+        @media screen and (min-width: 750px) {
+          .gallery__image--{{ block.id }} {
+            width: {{ block.settings.image_width }}%;
+          }
+        }
+      </style>
+
+      <div class="gallery__image gallery__image--{{ block.id }}{% if img_url == '' %} gallery__image--onboard{% endif %}" {{ block.shopify_attributes }}>
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}">
+        {% endif %}
+
+        {% if img_url == blank %}
+          <span class="gallery__placeholder">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </span>
+        {% else %}
+          {{ img_url | img_tag }}
+        {% endif %}
+
+        {% if block.settings.link != blank %}
+          </a>
+        {% endif %}
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Gallery",
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "image_width",
+            "label": "Image width",
+            "default": "50",
+            "info": "Defined in %. Do not add the '%' unit."
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link",
+            "info": "Optional"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Gallery",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image",
+            "settings": {
+              "image_width": "25"
+            }
+          },
+          {
+            "type": "image",
+            "settings": {
+              "image_width": "25"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
