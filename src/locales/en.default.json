@@ -260,7 +260,8 @@
       "from_text_html": "From {{ price }}",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart",
-      "shop_now": "Shop now"
+      "shop_now": "Shop now",
+      "request": "Request"
     }
   },
   "gift_cards": {
