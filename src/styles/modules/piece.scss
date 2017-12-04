@@ -1,7 +1,7 @@
 .piece {
   display: block;
-  line-height: normal;
   position: relative;
+  line-height: 0;
 }
 
 .piece__overlay {
@@ -32,6 +32,7 @@
 
 .piece__image {
   width: 100%;
+  line-height: 0;
 }
 
 .piece__overlay-content {
@@ -41,4 +42,5 @@
   padding-left: 1rem;
   padding-right: 1rem;
   bottom: 1rem;
+  line-height: normal;
 }

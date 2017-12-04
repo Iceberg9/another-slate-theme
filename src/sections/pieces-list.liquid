@@ -1,0 +1,98 @@
+<div data-section-id="{{ section.id }}" data-section-type="pieces-list">
+{% capture lookbook_page_handle %}lookbook-{{ collection.handle }}{% endcapture %}
+
+{% assign products_per_page = section.settings.products_per_page | plus: 0 %}
+{% paginate collection.products by products_per_page %}
+  <header role="banner">
+    <div class="page-header">
+      <h1 class="page-header__title">{{ collection.title }}</h1>
+      <p class="page-header__subtitle">{{ 'collections.general.collection' | t }}</p>
+    </div>
+    {% if collection.description != blank %}
+      <div class="page-description rte">
+        {{ collection.description }}
+      </div>
+    {% endif %}
+
+    {% unless pages[lookbook_page_handle].empty? %}
+      <p class="lookbook-link">
+        <a class="lookbook-link__item" href="{{ pages[lookbook_page_handle].url }}">
+          {{ pages[lookbook_page_handle].title }}
+        </a>
+      </p>
+    {% endunless %}
+  </header>
+
+  <div class="pieces-list">
+    {% if section.settings.grid_text != blank %}
+      <p class="pieces-list__header">
+        {{ section.settings.grid_text }}
+      </p>
+    {% endif %}
+    <div id="PiecesGrid-{{ section.id }}" class="pieces-list__grid">
+      {% for product in collection.products %}
+        <div class="pieces-list__item">
+          <a class="piece" href="{{ product.url | within: collection }}">
+            {{ product.featured_image.src | img_url: '600x' | img_tag: product.featured_image.alt, 'piece__image' }}
+            <div class="piece__overlay">
+              <div class="piece__overlay-content">
+                <p>{{ product.title }}</p>
+                <span class="btn">{{ 'products.product.request' | t }}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      {% else %}
+        {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+          {% for i in (1..8) %}
+            <div class="pieces-list__item">
+              <a class="piece" href="#">
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+                <div class="piece__overlay">
+                  <div class="piece__overlay-content">
+                    <p>{{ 'homepage.onboarding.product_title' | t }}</p>
+                    <span class="btn">{{ 'products.product.request' | t }}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="text-center p-x-1">{{ 'collections.general.no_matches' | t }}</p>
+        {% endif %}
+
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+{% endpaginate %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Collection pages",
+    "settings": [
+      {
+        "type": "text",
+        "id": "grid_text",
+        "label": "Grid text",
+        "default": "Pieces available upon request"
+      },
+      {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 5,
+      "max": 25,
+      "step": 1,
+      "label": "Products per page",
+      "default": 12
+      }
+    ]
+  }
+{% endschema %}

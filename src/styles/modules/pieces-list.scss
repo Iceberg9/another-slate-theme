@@ -1,0 +1,35 @@
+.pieces-list {
+  max-width: $page-width;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.6rem;
+}
+
+.pieces-list__item {
+  margin-bottom: $gallery-gutter;
+
+  @include media-query($medium-up) {
+    padding-left: $gallery-gutter;
+    width: 50%;
+    float: left;
+  }
+}
+
+.pieces-list__grid {
+  @include clearfix();
+  margin-bottom: -$gallery-gutter;
+
+  @include media-query($medium-up) {
+    margin-left: -$gallery-gutter;
+  }
+}
+
+.pieces-list__header {
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: $font-size-small;
+  color: $color-border;
+  font-style: italic;
+  margin-bottom: .5em;
+}
