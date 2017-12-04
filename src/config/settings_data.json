@@ -44,12 +44,16 @@
             "excerpt": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
             "page": "frontpage"
           }
+        },
+        "feature-row": {
+          "type": "feature-row"
         }
       },
       "content_for_index": [
         "gallery",
         "featured-products",
-        "featured-content"
+        "featured-content",
+        "feature-row"
       ]
     }
   }
