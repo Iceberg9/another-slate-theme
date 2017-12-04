@@ -44,6 +44,8 @@
 
   .placeholder-svg {
     @extend %place-holder-svg-absolute;
+    background: transparent;
+    border: none;
   }
 }
 
