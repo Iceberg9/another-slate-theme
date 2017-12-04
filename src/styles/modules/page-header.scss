@@ -1,0 +1,32 @@
+.page-header {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  padding-bottom: $font-size-small;
+  position: relative;
+  margin-bottom: 1.3rem;
+
+  &:before {
+    display: block;
+    background: $color-body-text;
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 2.26rem;
+    margin-left: -1.13rem;
+    bottom: 0;
+    left: 50%;
+  }
+}
+
+.page-header__title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.page-header__subtitle {
+  color: $color-border;
+  font-size: $font-size-small;
+  font-style: italic;
+  margin: 0;
+}
