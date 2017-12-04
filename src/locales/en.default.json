@@ -246,7 +246,6 @@
     "footer": {
       "social_platform": "{{ name }} on {{ platform }}",
       "copyright": "Copyright",
-      "newsletter_title": "Sign up to receive the best of us delivered straight to your inbox",
       "payment_methods": "Payment methods accepted"
     }
   },

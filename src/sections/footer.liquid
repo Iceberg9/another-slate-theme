@@ -20,7 +20,9 @@
 
   {% if section.settings.footer_newsletter_enable %}
     <div class="site-footer__newsletter">
-      <h4 class="small text-uppercase">{{ 'layout.footer.newsletter_title' | t }}</h4>
+      {% if section.settings.newsletter_caption != blank %}
+        <h4 class="small text-uppercase">{{ section.settings.newsletter_caption }}</h4>
+      {% endif %}
       {% include 'newsletter-form' %}
     </div>
   {% endif %}
@@ -53,6 +55,12 @@
         "id": "footer_newsletter_enable",
         "label": "Show newsletter sign-up",
         "default": false
+      },
+      {
+        "type": "text",
+        "id": "newsletter_caption",
+        "label": "Newsletter caption",
+        "default": "Sign up for the latest news, offers and styles"
       },
       {
         "type": "text",
