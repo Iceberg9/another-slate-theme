@@ -66,6 +66,12 @@
         "id": "color_button_text",
         "label": "Button text",
         "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent color",
+        "default": "#9d1818"
       }
     ]
   },

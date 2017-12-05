@@ -1,0 +1,98 @@
+{% assign products_per_page = section.settings.products_per_page | plus: 0 %}
+{% paginate collection.products by products_per_page %}
+
+  {% include 'collection-header' %}
+
+  <div class="page-width page-width--small-no-padding m-t-2-6">
+    <div class="products-grid">
+      {% for product in collection.products %}
+        <div class="products-grid__item">
+          <div class="product-card">
+            <a class="product-card__anchor" href="{{ product.url | within: collection }}">
+              <span class="product-card__image-link">
+                <img class="product-card__image" src="{{ product.featured_image.src | img_url: '400x400' }}" alt="{{ product.featured_image.alt | escape }}">
+              </span>
+              {% assign badge = section.settings.badge %}
+              {% for tag in product.tags %}
+                {% if tag == badge %}
+                  <i class="product-card__label">
+                    {{ tag }}
+                  </i>
+                {% endif %}
+              {% endfor %}
+            </a>
+
+            <p class="product-card__title">
+              <a  href="{{ product.url | within: collection }}">{{ product.title }}</a>
+            </p>
+
+            <p class="product-card__price">
+              {% if product.compare_at_price > product.price %}
+                <s>{{ product.compare_at_price | money }}</s>
+              {% endif %}
+              {{ product.price | money }}
+            </p>
+          </div>
+        </div>
+
+      {% else %}
+        {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+          {% for i in (1..8) %}
+            <div class="products-grid__item">
+              <div class="product-card">
+                <a class="product-card__anchor" href="#">
+                  <span class="product-card__image-link">
+                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                    {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+                  </span>
+                </a>
+
+                <p class="product-card__title">
+                <a  href="#">{{ 'homepage.onboarding.product_title' | t }}</a>
+                </p>
+
+                <p class="product-card__price">
+                  {{ 1999 | money }}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="text-center p-x-1">{{ 'collections.general.no_matches' | t }}</p>
+        {% endif %}
+
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+{% endpaginate %}
+
+{% schema %}
+  {
+    "name": "Collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "badge",
+        "label": "Badge"
+      },
+      {
+         "type": "select",
+         "id": "products_per_page",
+         "default": "12",
+         "options": [
+            { "value": "9", "label": "8 Products"},
+            { "value": "12", "label": "12 Products"},
+            { "value": "15", "label": "15 Products"},
+            { "value": "18", "label": "18 Products"},
+            { "value": "21", "label": "21 Products"},
+            { "value": "24", "label": "24 Products"}
+         ],
+       "label": "Products per page"
+      }
+    ]
+  }
+{% endschema %}

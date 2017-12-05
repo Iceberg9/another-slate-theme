@@ -1,0 +1,33 @@
+.products-grid {
+  @include clearfix();
+  margin-left: -.2rem;
+  margin-bottom: -.2rem;
+
+  @include media-query($medium-up) {
+    margin-left: -1rem;
+    margin-bottom: -2.4rem;
+  }
+
+  @include media-query($large-up) {
+    margin-left: -3.3rem;
+  }
+}
+
+.products-grid__item {
+  float: left;
+  padding-left: .2rem;
+  width: 50%;
+
+  @include media-query($medium-up) {
+    padding-left: 1rem;
+  }
+
+  @include media-query($large-up) {
+    width: 33.33%;
+    padding-left: 3.3rem;
+
+    &:nth-child(3n+1) {
+      clear: left;
+    }
+  }
+}

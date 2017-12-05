@@ -6,7 +6,16 @@ html {
 
 .page-width {
   @include clearfix();
-  max-width: $width-site;
-  padding: 0 $gutter;
-  margin: 0 auto;
+  max-width: $page-width;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-width--small-no-padding {
+  @include media-query($small) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
