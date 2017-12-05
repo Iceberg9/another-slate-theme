@@ -9,7 +9,15 @@
         {%- assign collection = collections[section.settings.collection] -%}
 
         {% for product in collection.products limit: 4 %}
-          {% include 'grid-item' %}
+          <div class="grid-item">
+            <a class="grid-item__image-link" href="{{ product.url | within: collection }}">
+              {{ product.featured_image.src | img_url: '240x240', crop: center | img_tag: product.title, 'grid-item__image' }}
+            </a>
+            <a class="grid-item__title" href="{{ product.url }}">
+              {{ product.title }}
+            </a>
+            <span class="grid-item__price">{{ product.price | money }}</span>
+          </div>
         {% else %}
           {% for i in (1..4) %}
             <div class="grid-item">
