@@ -3,6 +3,16 @@
 
   {% include 'collection-header' %}
 
+  {% if linklists[section.settings.main_linklist].links != blank %}
+    <ul class="collection-nav">
+      {% for link in linklists[section.settings.main_linklist].links %}
+        <li class="collection-nav__item">
+          <a class="btn btn--thick" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
   <div class="page-width page-width--small-no-padding page-width--large-no-padding m-t-2-6">
     <div class="products-grid">
       {% for product in collection.products %}
@@ -92,6 +102,12 @@
             { "value": "24", "label": "24 Products"}
          ],
        "label": "Products per page"
+      },
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
       }
     ]
   }

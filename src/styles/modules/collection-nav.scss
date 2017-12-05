@@ -1,0 +1,22 @@
+.collection-nav {
+  margin: 1.3rem 0 0;
+  padding: 0;
+  text-align: center;
+
+  @include media-query($medium-up) {
+    display: none;
+  }
+}
+
+.collection-nav__item {
+  list-style: none;
+
+  & + & {
+    margin-top: .5rem;
+  }
+
+  a {
+    min-width: 180px;
+  }
+
+}
