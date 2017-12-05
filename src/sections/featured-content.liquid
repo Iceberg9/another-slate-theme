@@ -1,40 +1,8 @@
-{% capture page_example %}
-  <p>Dolor in velit a quasi totam quidem Numquam dolorem veniam fugit officia sit Nam ut provident quas nemo voluptatem? Consequatur minima adipisci consectetur fugiat quidem. Dolorum ad nam aliquid quo?</p>
-{% endcapture %}
-
-<div class="custom-content">
-  <input type="checkbox" id="toggle-{{ section.id }}" class="custom-content__check">
-  <div class="custom-content__excerpt rte">
-    <label class="custom-content__label" for="toggle-{{ section.id }}"></label>
-
-    {% if section.settings.excerpt != blank %}
-      {{ section.settings.excerpt }}
-    {% endif %}
-
-    {% include 'icon-chevron-right' %}
-    {% include 'icon-chevron-down' %}
-  </div>
-  <div class="custom-content__page rte">
-    {{ pages[section.settings.page].content | default: page_example }}
-  </div>
-</div>
+{% include 'featured-content' %}
 
 {% schema %}
   {
     "name": "Featured content",
-    "settings": [
-      {
-        "type": "page",
-        "id": "page",
-        "label": "Page"
-      },
-      {
-        "type": "richtext",
-        "id": "excerpt",
-        "label": "Excerpt",
-        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
-      }
-    ],
     "presets": [
       {
         "name": "Featured content",

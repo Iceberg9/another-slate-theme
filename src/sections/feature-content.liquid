@@ -1,0 +1,9 @@
+{% unless settings.home_page_content == blank or pages[settings.home_page_content].empty? %}
+  {% include 'featured-content' %}
+{% endunless %}
+
+{% schema %}
+  {
+    "name": "Featured content"
+  }
+{% endschema %}
