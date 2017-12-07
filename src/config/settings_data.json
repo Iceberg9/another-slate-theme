@@ -2,7 +2,6 @@
   "current": "Default",
   "presets": {
     "Default": {
-      "home_page_content": "frontpage",
       "sections": {
         "gallery": {
           "type": "gallery",

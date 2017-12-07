@@ -153,22 +153,6 @@
     ]
   },
   {
-    "name": "Home",
-    "settings": [
-      {
-        "type": "page",
-        "id": "home_page_content",
-        "label": "Featured content"
-      },
-      {
-        "type": "richtext",
-        "id": "home_page_excerpt",
-        "label": "Excerpt",
-        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
-      }
-    ]
-  },
-  {
     "name": "Cart",
     "settings": [
       {

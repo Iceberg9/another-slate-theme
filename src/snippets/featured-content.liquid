@@ -7,14 +7,14 @@
   <div class="custom-content__excerpt rte">
     <label class="custom-content__label" for="toggle-{{ section.id }}"></label>
 
-    {% if settings.home_page_excerpt != blank %}
-      {{ settings.home_page_excerpt }}
+    {% if section.settings.excerpt != blank %}
+      {{ section.settings.excerpt }}
     {% endif %}
 
     {% include 'icon-chevron-right' %}
     {% include 'icon-chevron-down' %}
   </div>
   <div class="custom-content__page rte">
-    {{ pages[settings.home_page_content].content | default: page_example }}
+    {{ pages[section.settings.page].content | default: page_example }}
   </div>
 </div>
