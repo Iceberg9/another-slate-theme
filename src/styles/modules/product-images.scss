@@ -1,0 +1,28 @@
+.product-images {
+  margin: 0;
+  margin-bottom: -$gallery-gutter;
+  padding: 0;
+  line-height: 0;
+  list-style: none;
+
+  @include media-query($medium-up) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @include media-query($large-up) {
+    margin-top: $gallery-gutter;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}
+
+.product-images__item {
+  margin-bottom: $gallery-gutter;
+
+  img {
+    width: 100%;
+  }
+}

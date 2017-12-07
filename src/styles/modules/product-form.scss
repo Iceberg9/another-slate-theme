@@ -1,0 +1,22 @@
+.product-form {
+  font-size: $font-size-small;
+
+  .btn {
+    width: 100%;
+    max-width: 180px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.product-form__price {
+  text-align: center;
+  color: $color-border;
+  margin-bottom: .6rem;
+
+  s {
+    color: $color-accent;
+    margin-right: .5em;
+  }
+}

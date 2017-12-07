@@ -1,0 +1,16 @@
+.product-details {
+  margin-top: 1.46rem;
+
+  @include media-query($large-up) {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0;
+    width: 25%;
+  }
+
+  &.is_stuck {
+    & + div[style] {
+      width: 25% !important;
+    }
+  }
+}

@@ -36,6 +36,13 @@ a {
   }
 }
 
+.btn[disabled] {
+  background: $color-body;
+  color: $color-body-text;
+  border-color: $color-border;
+  cursor: default;
+}
+
 .btn--secondary {
   background: $color-button-text;
   border-color: $color-border;

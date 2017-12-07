@@ -1,0 +1,65 @@
+{% assign number_of_products = 2 %}
+{% assign number_of_products_to_fetch = number_of_products | plus: 1 %}
+
+{% assign related_products = '' %}
+{% assign prefix = 'related_' %}
+
+{% for tag in product.tags %}
+  {% if tag contains prefix %}
+    {% assign product_handle = tag | remove: prefix %}
+    {% assign related_products = related_products | append: product_handle | append: ',' %}
+  {% endif %}
+{% endfor %}
+
+{% unless related_products == blank %}
+  {% assign  related_products = related_products | split: ',' %}
+
+  <div class="related-products">
+    <h4 class="related-products__title">{{ 'products.general.related_products_title' | t }}</h4>
+    <div class="products-grid">
+      {% for handle in related_products limit: number_of_products %}
+        {% assign product = all_products[handle] %}
+        {% unless product.empty? %}
+          <div class="products-grid__item">
+            {% include 'product-card' %}
+          </div>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+{% endunless %}
+
+{% if related_products == blank %}
+
+  {% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+    {% assign found_a_collection = false %}
+    {% for c in product.collections %}
+      {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+        {% assign found_a_collection = true %}
+        {% assign collection = c %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% if collection and collection.products_count > 1 %}
+    <div class="related-products">
+      <h4 class="related-products__title">{{ 'products.general.related_products_title' | t }}</h4>
+      <div class="products-grid">
+        {% assign current_product = product %}
+        {% assign current_product_found = false %}
+        {% for product in collection.products limit: number_of_products_to_fetch %}
+          {% if product.handle == current_product.handle %}
+            {% assign current_product_found = true %}
+          {% else %}
+            {% unless current_product_found == false and forloop.last %}
+              <div class="products-grid__item">
+                {% include 'product-card' %}
+              </div>
+            {% endunless %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+{% endif %}

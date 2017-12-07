@@ -19,7 +19,10 @@ theme.Product = (function() {
     productJson: '[data-product-json]',
     productPrice: '[data-product-price]',
     productThumbs: '[data-product-single-thumbnail]',
-    singleOptionSelector: '[data-single-option-selector]'
+    singleOptionSelector: '[data-single-option-selector]',
+    optionValue: '[data-option-value]',
+    stickyItem: '[data-sticky]',
+    productWrapper: '[data-product]'
   };
 
   /**
@@ -47,7 +50,11 @@ theme.Product = (function() {
       product: this.productSingleObject
     };
 
-    this.settings = {};
+    this.settings = {
+      mediaQueryLargeUp: 'screen and (min-width: 990px)',
+      isSticky: false
+    };
+
     this.namespace = '.product';
     this.variants = new slate.Variants(options);
     this.$featuredImage = $(selectors.productFeaturedImage, this.$container);
@@ -61,9 +68,49 @@ theme.Product = (function() {
 
       this.$container.on('variantImageChange' + this.namespace, this.updateProductImage.bind(this));
     }
+
+    $(selectors.singleOptionSelector, this.$container).on('change.singleOption', this.onChangeSingleSelector);
+    this.initBreakpoints();
   }
 
   Product.prototype = $.extend({}, Product.prototype, {
+    initBreakpoints: function() {
+      var self = this;
+
+      enquire.register(this.settings.mediaQueryLargeUp, {
+        match: function() {
+          self.initSticky();
+        },
+        unmatch: function() {
+          if (self.settings.isSticky) {
+            self.destroySticky();
+          }
+        }
+      });
+    },
+
+    initSticky: function() {
+      var options = {
+        parent: $(selectors.productWrapper, this.$container),
+        offset_top: 100
+      };
+
+      $(selectors.stickyItem, this.$container).stick_in_parent(options);
+
+      this.settings.isSticky = true;
+    },
+
+    destroySticky: function() {
+      $(selectors.stickyItem, this.$container).trigger('sticky_kit:detach');
+      this.settings.isSticky = false;
+    },
+
+    onChangeSingleSelector: function(evt) {
+      var $select = $(evt.target);
+      var value = $select.val();
+      var $optionValue = $select.prev().children(selectors.optionValue);
+      $optionValue.html(value);
+    },
 
     /**
      * Updates the DOM state of the add to cart button

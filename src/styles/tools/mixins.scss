@@ -193,6 +193,17 @@
   -ms-flex-pack: $alt-value;
 }
 
+@mixin order($int: 0) {
+  // 2009
+  @include prefix(box-ordinal-group, $int, webkit moz spec);
+
+  // 2012
+  @include prefix(order, $int, webkit moz spec);
+
+  // 2011 (IE 10)
+  -ms-flex-order: $int;
+}
+
 @mixin vertical-align($position: relative) {
   position: $position;
   top: 50%;

@@ -1,0 +1,26 @@
+<div class="product-card">
+  <a class="product-card__anchor" href="{{ product.url | within: collection }}">
+    <span class="product-card__image-link">
+      <img class="product-card__image" src="{{ product.featured_image.src | img_url: '400x400' }}" alt="{{ product.featured_image.alt | escape }}">
+    </span>
+    {% assign badge = section.settings.badge %}
+    {% for tag in product.tags %}
+      {% if tag == badge %}
+        <i class="product-card__label">
+          {{ tag }}
+        </i>
+      {% endif %}
+    {% endfor %}
+  </a>
+
+  <p class="product-card__title">
+    <a  href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </p>
+
+  <p class="product-card__price">
+    {% if product.compare_at_price > product.price %}
+      <s>{{ product.compare_at_price | money }}</s>
+    {% endif %}
+    {{ product.price | money }}
+  </p>
+</div>
