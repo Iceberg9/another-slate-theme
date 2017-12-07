@@ -25,6 +25,18 @@
   right: 0;
 }
 
+%mini-title {
+  text-decoration: underline;
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-bottom: 1.26rem;
+
+  @include media-query($large-up) {
+    margin-bottom: 1.73rem;
+  }
+}
+
 %grid-item__price {
   color: $color-border;
   display: block;

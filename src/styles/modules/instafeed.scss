@@ -1,0 +1,33 @@
+.instafeed {
+  @include clearfix;
+  margin-bottom: -2rem;
+
+  @include media-query($medium-up) {
+    margin-left: -$gallery-gutter;
+  }
+}
+
+.instafeed__item {
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+
+  @include media-query($medium-up) {
+    width: 50%;
+    padding-left: $gallery-gutter;
+    float: left;
+    max-width: none;
+  }
+
+  span {
+    display: block;
+    font-size: $font-size-small;
+    font-style: italic;
+    color: $color-border;
+  }
+
+  img {
+    width: 100%;
+  }
+}

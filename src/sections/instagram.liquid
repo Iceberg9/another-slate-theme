@@ -1,0 +1,45 @@
+{% assign tag_name = '' %}
+{% assign prefix = 'insta_' %}
+
+{% for tag in product.tags %}
+  {% if tag contains prefix %}
+    {% assign tag_name = tag | remove: prefix %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<script>
+  {% if section.settings.access_token %}
+    theme.accessToken = {{ section.settings.access_token | json }};
+  {% endif %}
+  {% unless tag_name == blank %}
+    theme.tagName = {{ tag_name | json }};
+  {% endunless %}
+</script>
+
+<div class="instafeed-wrapper">
+  {% if section.settings.title != blank %}
+    <h4 class="instafeed-wrapper__title">{{ section.settings.title }}</h4>
+  {% endif %}
+  <div id="instafeed" class="instafeed" data-section-id="{{ section.id }}" data-section-type="instagram"></div>
+</div>
+
+{% schema %}
+  {
+    "name": "Instagram",
+    "settings": [
+      {
+        "type": "text",
+        "id": "access_token",
+        "label": "Instagram access token",
+        "info": "[Get your access token](http://pagemilldesign.com/instagram-privacy-policy)"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "How to wear and pair"
+      }
+    ]
+  }
+{% endschema %}

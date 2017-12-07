@@ -43,9 +43,5 @@
 }
 
 .related-products__title {
-  text-decoration: underline;
-  text-align: center;
-  font-size: 10px;
-  text-transform: uppercase;
-  margin-bottom: 1.26rem;
+  @extend %mini-title;
 }
