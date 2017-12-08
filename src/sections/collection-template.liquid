@@ -13,7 +13,7 @@
     </ul>
   {% endif %}
 
-  <div class="page-width page-width--small-no-padding page-width--large-no-padding m-t-2-6">
+  <div class="products-grid-wrapper">
     <div class="products-grid">
       {% for product in collection.products %}
         <div class="products-grid__item">
@@ -43,7 +43,7 @@
             </div>
           {% endfor %}
         {% else %}
-          <p class="text-center p-x-1">{{ 'collections.general.no_matches' | t }}</p>
+          <p class="text-center px1">{{ 'collections.general.no_matches' | t }}</p>
         {% endif %}
 
       {% endfor %}

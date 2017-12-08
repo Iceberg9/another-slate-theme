@@ -1,0 +1,12 @@
+.products-grid-wrapper {
+  @include clearfix();
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.6rem;
+  max-width: $page-width;
+
+  @include media-query($medium) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
