@@ -7,15 +7,7 @@
   margin-bottom: 1.3rem;
 
   &:before {
-    display: block;
-    background: $color-body-text;
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 2.26rem;
-    margin-left: -1.13rem;
-    bottom: 0;
-    left: 50%;
+    @extend %before-title;
   }
 }
 

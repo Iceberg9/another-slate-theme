@@ -10,6 +10,7 @@ input:not([type]), input[type="text"], input[type="password"], input[type="date"
   padding: .46rem;
   color: $color-body-text;
   font-style: italic;
+  width: 100%;
 }
 
 input[type="number"] {
@@ -18,6 +19,12 @@ input[type="number"] {
 
 textarea {
   min-height: 100px;
+}
+
+label {
+  display: block;
+  font-weight: normal;
+  margin-bottom: $font-size-small / 2;
 }
 
 /*================ Custom select style ================*/

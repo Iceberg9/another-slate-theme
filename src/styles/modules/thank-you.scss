@@ -1,0 +1,19 @@
+.thank-you {
+  margin-top: 2.8rem;
+  margin-bottom: 4.6rem;
+}
+
+.thank-you__title {
+  @extend h1;
+  text-align: center;
+  margin-bottom: .6rem;
+}
+
+.thank-you__rte {
+  text-align: center;
+  font-style: italic;
+  font-size: $font-size-small;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}

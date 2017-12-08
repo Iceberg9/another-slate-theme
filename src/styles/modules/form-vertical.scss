@@ -1,0 +1,34 @@
+.form-vertical {
+  .btn {
+    display: block;
+    max-width: 180px;
+    margin-left:  auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 2.6rem;
+    margin-bottom: 1rem;
+  }
+
+  @include media-query($medium-up) {
+    .form-group {
+      @include display-flexbox();
+      @include align-items(center);
+
+      label {
+        width: 120px;
+        margin-bottom: 0;
+
+        & + input[type] {
+          width: calc(100% - 120px);
+        }
+      }
+    }
+  }
+
+  .modal & {
+    max-width: 400px;
+    margin-top: 3.1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

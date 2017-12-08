@@ -106,11 +106,22 @@
     }
   },
   "contact": {
+    "general": {
+      "request": "Request",
+      "request_about": "You are requesting more information regarding {{ product }}"
+    },
     "form": {
-      "name": "Name",
-      "email": "Email",
-      "phone": "Phone Number",
+      "name_label": "Your Name",
+      "name": "Rachael Tyrell",
+      "email_label": "Email",
+      "email": "racheal@tyrellcorp.com",
+      "phone_label": "Phone Number",
+      "phone": "55-1234-5678",
       "message": "Message",
+      "country_label": "Country",
+      "country": "Enter country",
+      "zip_code_label": "Zip Code",
+      "zip_code": "Enter zip code",
       "send": "Send",
       "post_success": "Thanks for contacting us. We'll get back to you as soon as possible."
     }
@@ -251,7 +262,8 @@
   },
   "products": {
     "general": {
-      "related_products_title": "The perfect complements"
+      "related_products_title": "The perfect complements",
+      "more_from_collection": "More from {{ collection }}"
     },
     "product": {
       "regular_price": "Regular price",

@@ -18,6 +18,8 @@ window.theme = window.theme || {};
 // =require sections/featured-products.js
 // =require sections/pieces-list.js
 // =require sections/instagram.js
+// =require sections/modal-request.js
+// =require sections/modal-thank-you.js
 
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
@@ -35,6 +37,8 @@ $(document).ready(function() {
   sections.register('featured-products', theme.FeaturedProducts);
   sections.register('pieces-list', theme.PiecesList);
   sections.register('instagram', theme.Instagram);
+  sections.register('modal-request', theme.ModalRequest);
+  sections.register('modal-thank-you', theme.ModalThankYou);
 
   // Common a11y fixes
   slate.a11y.pageLinkFocus($(window.location.hash));

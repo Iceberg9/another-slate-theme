@@ -37,6 +37,15 @@
   }
 }
 
+%note {
+  padding: .46rem;
+  margin-bottom: 3.1rem;
+  border: 1px solid $color-border;
+  font-size: $font-size-small;
+  font-style: italic;
+  text-align: center;
+}
+
 %grid-item__price {
   color: $color-border;
   display: block;
@@ -68,3 +77,15 @@
   @include flex-grow(1);
 }
 
+%before-title {
+  display: block;
+  background: $color-body-text;
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 2.26rem;
+  margin-left: -1.13rem;
+  bottom: 0;
+  left: 50%;
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+<div data-section-id="{{ section.id }}" data-section-type="modal-thank-you">
+  <div class="modal fade" id="thankyouModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            {% include 'icon-close' %}
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="thank-you">
+            {% if section.settings.title != blank %}
+              <h4 class="thank-you__title">{{ section.settings.title }}</h4>
+            {% endif %}
+            {% if section.settings.text != blank %}
+              <div class="thank-you__rte rte">{{ section.settings.text }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Thank you message",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Thank you"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Thanks for contacting us. We'll get back to you as soon as possible.</p>"
+      }
+    ]
+  }
+{% endschema %}

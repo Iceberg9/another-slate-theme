@@ -1,0 +1,21 @@
+.request__title {
+  @extend h1;
+  text-align: center;
+  margin-bottom: .6rem;
+}
+
+.request__subtitle {
+  text-align: center;
+  color: $color-border;
+  font-style: italic;
+  font-size: $font-size-small;
+  text-transform: none;
+  margin-bottom: 2.26rem;
+}
+
+.request__rte {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
