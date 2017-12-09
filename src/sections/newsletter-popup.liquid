@@ -1,0 +1,113 @@
+<script>
+  theme.newsletterDelay = {{ section.settings.delay | json }};
+  theme.newsletterFrequency = {{ section.settings.frequency | json }};
+  theme.newsletterEnabled = {{ section.settings.enable | json }};
+</script>
+
+<div data-section-id="{{ section.id }}" data-section-type="newsletter-popup">
+  <div class="modal fade" id="newsletterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            {% include 'icon-close' %}
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="newsletter">
+            {% if section.settings.title != blank %}
+              <h4 class="newsletter__title">{{ section.settings.title }}</h4>
+            {% endif %}
+
+            {% if section.settings.subtitle != blank %}
+              <h4 class="newsletter__subtitle">{{ section.settings.subtitle }}</h4>
+            {% endif %}
+
+            {% if section.settings.text != blank %}
+              <div class="newsletter__rte rte">{{ section.settings.text }}</div>
+            {% endif %}
+
+            {% if section.settings.newsletter_form_action != blank %}
+              {% assign form_action = section.settings.newsletter_form_action %}
+            {% else %}
+              {% assign form_action = '#' %}
+            {% endif %}
+            <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="input-group__field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+              <span class="input-group__btn">
+                <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+              </span>
+            </form>
+            {% if section.settings.close_text != blank %}
+              <a data-dismiss="modal" class="newsletter__close" href="#">{{ section.settings.close_text }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Newsletter poup",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Newsletter"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Your store's newsletter. Get 10% off instantly!"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>sign up to receive the best of us delivered straight to your inbox</p>"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "MailChimp form action URL",
+        "info": "[Find your MailChimp form action URL](https:\/\/docs.shopify.com\/manual\/configuration\/store-customization\/communicating-with-customers\/accounts-and-newsletters\/get-a-mailchimp-form-action-url)."
+      },
+      {
+        "type": "text",
+        "id": "close_text",
+        "label": "Close text",
+        "default": "No, thank you"
+      },
+      {
+        "type": "range",
+        "id": "delay",
+        "min": 10,
+        "max": 60,
+        "step": 10,
+        "unit": "sec",
+        "label": "Show popup after",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "frequency",
+        "min": 2,
+        "max": 30,
+        "step": 1,
+        "unit": "day",
+        "label": "Popup frequency",
+        "default": 30
+      }
+    ]
+  }
+{% endschema %}

@@ -1,9 +1,10 @@
 theme.ModalThankYou = (function() {
+  'use strict';
+
   var selectors = {
     modalThankYou: '#thankyouModal',
     modalButton: '#ModalButton'
   };
-
 
   function ModalThankYou(container) {
     this.$container = $(container)

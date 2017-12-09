@@ -20,6 +20,7 @@ window.theme = window.theme || {};
 // =require sections/instagram.js
 // =require sections/modal-request.js
 // =require sections/modal-thank-you.js
+// =require sections/newsletter-popup.js
 
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
@@ -39,6 +40,7 @@ $(document).ready(function() {
   sections.register('instagram', theme.Instagram);
   sections.register('modal-request', theme.ModalRequest);
   sections.register('modal-thank-you', theme.ModalThankYou);
+  sections.register('newsletter-popup', theme.NewsletterPopup);
 
   // Common a11y fixes
   slate.a11y.pageLinkFocus($(window.location.hash));
