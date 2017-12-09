@@ -1,0 +1,20 @@
+.lookbook-header {
+  .lookbook-wrapper & {
+    @include media-query($large-up) {
+      position: absolute;
+      top: 0;
+      left: $phi * 1rem;
+      z-index: $z-index-dropdown - 2;
+    }
+  }
+}
+
+.lookbook-header__title {
+  margin-bottom: 0;
+}
+.lookbook-header__subtitle {
+  font-size: $font-size-small;
+  font-style: italic;
+  margin: 0;
+  color: $color-border;
+}

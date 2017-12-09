@@ -64,3 +64,35 @@
     opacity: $slick-opacity-default;
   }
 }
+
+.slick-prev,
+.slick-next {
+  @include vertical-align(absolute);
+  display: block;
+  width: 24px;
+  height: 35px;
+  line-height: 0;
+  font-size: 0;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  outline: none;
+  z-index: $z-index-dropdown - 2;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    opacity: $opacity-link-hover;
+  }
+}
+
+.slick-prev {
+  background-image: url({{ 'arrow-left.png' | asset_url }});
+  left: $phi * 1rem;
+}
+
+.slick-next {
+  background-image: url({{ 'arrow-right.png' | asset_url }});
+  right: $phi * 1rem;
+}

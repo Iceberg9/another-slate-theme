@@ -22,6 +22,7 @@ window.theme = window.theme || {};
 // =require sections/modal-thank-you.js
 // =require sections/newsletter-popup.js
 // =require sections/featured-content.js
+// =require sections/lookbook.js
 
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
@@ -43,6 +44,7 @@ $(document).ready(function() {
   sections.register('modal-thank-you', theme.ModalThankYou);
   sections.register('newsletter-popup', theme.NewsletterPopup);
   sections.register('featured-content', theme.FeaturedContent);
+  sections.register('lookbook', theme.Lookbook);
 
   // Common a11y fixes
   slate.a11y.pageLinkFocus($(window.location.hash));

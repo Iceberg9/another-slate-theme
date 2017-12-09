@@ -1,0 +1,52 @@
+<div data-section-id="{{ section.id }}" data-section-type="lookbook">
+  <div class="lookbook-wrapper">
+    <div class="lookbook-wrapper__top">
+      <div class="lookbook-header">
+        <h1 class="lookbook-header__title">{{ page.title | downcase | remove: '– lookbook' | capitalize }}</h1>
+        <p class="lookbook-header__subtitle">Lookbook</p>
+      </div>
+
+      <span class="lookbook-pagination" data-pagination></span>
+
+      {% assign collection_handle = page.handle | remove: 'lookbook-' %}
+      {% assign collection = collections[collection_handle] %}
+      {% unless collection.empty? %}
+        <a class="collection-link" href="{{ collection.url }}">
+          {% include 'icon-close' %}
+        </a>
+      {% endunless %}
+    </div>
+
+    <div class="lookbook" id="Slider-{{ section.id }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Lookbook",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Auto-rotate slides",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "autoplay_speed",
+        "label": "Change slides every",
+        "options": [
+          { "value": "5000", "label": "5 seconds" },
+          { "value": "6000", "label": "6 seconds" },
+          { "value": "7000", "label": "7 seconds" },
+          { "value": "8000", "label": "8 seconds" },
+          { "value": "9000", "label": "9 seconds" },
+          { "value": "10000", "label": "10 seconds" }
+        ],
+        "default": "7000"
+      }
+    ]
+  }
+{% endschema %}

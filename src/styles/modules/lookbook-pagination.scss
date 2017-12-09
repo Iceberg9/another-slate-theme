@@ -1,0 +1,19 @@
+.lookbook-pagination {
+  left: 30%;
+  right: 30%;
+  text-align: center;
+  display: block;
+  font-size: $font-size-small;
+  position: absolute;
+
+  @include media-query($medium-down) {
+    @include vertical-align(absolute);
+  }
+
+  @include media-query($large-up) {
+    left: auto;
+    right: $phi * 1rem;
+    bottom: 0;
+  }
+
+}

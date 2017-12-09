@@ -1,0 +1,21 @@
+.lookbook {
+  margin-top: $font-size-small;
+
+  @include media-query($large-up){
+    margin-top: 0;
+  }
+}
+
+.lookbook__image {
+  outline: none;
+
+  img  {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    @include media-query($large-up) {
+      max-width: #{100% / $phi};
+    }
+  }
+}

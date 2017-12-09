@@ -1,0 +1,19 @@
+.collection-link {
+  color: $color-border;
+  margin-left: auto;
+
+  .lookbook-wrapper & {
+    @include media-query($large-up) {
+      position: absolute;
+      top: 0;
+      right: $phi * 1rem;
+      z-index: $z-index-dropdown - 2;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    opacity: $opacity-link-hover;
+    color: $color-border;
+  }
+}

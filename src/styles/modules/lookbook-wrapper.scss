@@ -1,0 +1,20 @@
+.lookbook-wrapper {
+  max-width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media-query($large-up) {
+    position: relative;
+  }
+}
+
+.lookbook-wrapper__top {
+  @include display-flexbox;
+  @include align-items(center);
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include media-query($medium-down) {
+    position: relative;
+  }
+}
