@@ -5,14 +5,15 @@
 <div class="custom-content">
   <input type="checkbox" id="toggle-{{ section.id }}" class="custom-content__check">
   <div class="custom-content__excerpt rte">
-    <label class="custom-content__label" for="toggle-{{ section.id }}"></label>
+    <label class="custom-content__label" for="toggle-{{ section.id }}">
+      {% include 'icon-chevron-right' %}
+      {% include 'icon-chevron-down' %}
+    </label>
 
     {% if section.settings.excerpt != blank %}
       {{ section.settings.excerpt }}
     {% endif %}
 
-    {% include 'icon-chevron-right' %}
-    {% include 'icon-chevron-down' %}
   </div>
   <div class="custom-content__page rte">
     {{ pages[section.settings.page].content | default: page_example }}
