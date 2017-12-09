@@ -21,6 +21,7 @@ window.theme = window.theme || {};
 // =require sections/modal-request.js
 // =require sections/modal-thank-you.js
 // =require sections/newsletter-popup.js
+// =require sections/featured-content.js
 
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
@@ -41,6 +42,7 @@ $(document).ready(function() {
   sections.register('modal-request', theme.ModalRequest);
   sections.register('modal-thank-you', theme.ModalThankYou);
   sections.register('newsletter-popup', theme.NewsletterPopup);
+  sections.register('featured-content', theme.FeaturedContent);
 
   // Common a11y fixes
   slate.a11y.pageLinkFocus($(window.location.hash));
