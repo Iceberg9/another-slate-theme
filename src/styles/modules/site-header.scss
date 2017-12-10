@@ -56,6 +56,13 @@
   text-align: right;
   margin-top: -.3rem;
 
+  &:hover,
+  &:focus {
+    rect {
+      fill: $color-primary;
+    }
+  }
+
   @include media-query($large-up) {
     display: none;
   }
