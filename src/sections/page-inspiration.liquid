@@ -1,0 +1,122 @@
+<div class="page-header">
+  <h1 class="page-header__title">{{ page.title }}</h1>
+  {% if section.settings.subtitle != blank %}
+    <p class="page-header__subtitle">{{ section.settings.subtitle }}</p>
+  {% endif %}
+</div>
+
+<div class="inspiration-wrapper">
+  <div class="inspiration-grid">
+    {% for block in section.blocks %}
+      <div class="inspiration-grid__item" style="max-width: {{ block.settings.image_max_width }}px;">
+        <div class="inspiration-item inspiration-item--{{ block.id }}">
+          {% if block.settings.cta_url != blank %}
+            <a class="inspiration-item__image-link" href="{{ block.settings.cta_url }}">
+          {% endif %}
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | img_url: '600x' | img_tag: block.settings.image.alt, 'inspiration-item__image' }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          {% if block.settings.cta_url != blank %}
+            </a>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <div class="inspiration-item__rte rte">{{ block.settings.text }}</div>
+          {% endif %}
+          {% if block.settings.cta_text != blank %}
+            <a class="inspiration-item__cta" href="{{ block.settings.cta_url }}">{{ block.settings.cta_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+
+    {% if section.blocks.size == 0 %}
+      {% include 'no-blocks' %}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Inspiration page",
+    "max_blocks": 24,
+    "settings": [
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Our selections and in the moment inspiration"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "image_max_width",
+            "label": "Image max width (in pixels)",
+            "default": "400"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>"
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA text"
+          },
+          {
+            "type": "url",
+            "id": "cta_url",
+            "label": "CTA link"
+          }
+        ]
+      }
+    ],
+    "default": {
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "image_max_width": "430"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "image_max_width": "335"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "image_max_width": "278"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "image_max_width": "333"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "image_max_width": "277"
+          }
+        }
+      ]
+    }
+  }
+{% endschema %}
