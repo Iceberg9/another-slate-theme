@@ -60,10 +60,18 @@
       {% include 'site-nav' %}
     </nav>
 
-    <a class="site-header__icon site-header__icon--cart" href="/cart">
+    <a class="site-header__icon site-header__icon--cart" href="/cart" data-open-cart>
       {% include 'icon-bag-full-color' %}
       <span class="icon-fallback-text">{{ 'layout.cart.title' | t }}</span>
     </a>
+
+    <div class="mini-cart" data-mini-cart>
+      <a class="mini-cart__close" href="#" data-mini-cart-close>
+        {% include 'icon-close' %}
+      </a>
+      <div class="mini-cart__inner" data-mini-cart-content>
+      </div>
+    </div>
 
     <ul id="MobileNav" class="mobile-nav">
       {% for link in linklists[section.settings.main_linklist].links %}

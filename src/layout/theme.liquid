@@ -42,7 +42,8 @@
       strings: {
         addToCart: {{ 'products.product.add_to_cart' | t | json }},
         soldOut: {{ 'products.product.sold_out' | t | json }},
-        unavailable: {{ 'products.product.unavailable' | t | json }}
+        unavailable: {{ 'products.product.unavailable' | t | json }},
+        itemsInBag: {{ 'cart.general.items_in_bag_html' | t| json }}
       },
       moneyFormat: {{ shop.money_format | json }}
     };
@@ -86,6 +87,20 @@
         <span>+</span>
       </button>
     </div>
+  {% endraw %}
+  </script>
+
+  <script id="ItemsInBag" type="text/template">
+  {% raw %}
+    <p>{% endraw %}{{ 'cart.general.items_in_bag_html' | t }}{% raw %}</p>
+    <a href="/cart">{% endraw %}{{ 'cart.general.checkout' | t }}{% raw %}</a>
+  {% endraw %}
+  </script>
+
+  <script id="NoItemsInBag" type="text/template">
+  {% raw %}
+    <p>{% endraw %}{{ 'cart.general.empty' | t }}{% raw %}</p>
+    <a href="/collections/all">{% endraw %}{{ 'gift_cards.issued.shop_link' | t }}{% raw %}</a>
   {% endraw %}
   </script>
 

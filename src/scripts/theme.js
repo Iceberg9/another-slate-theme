@@ -35,6 +35,7 @@ window.theme = window.theme || {};
 /*================ Modules ================*/
 // =require modules/sticky-header.js
 // =require modules/mobile-nav.js
+// =require modules/ajax-cart.js
 
 $(document).ready(function() {
   var sections = new slate.Sections();

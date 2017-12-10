@@ -83,6 +83,8 @@ theme.StickyHeader = (function() {
     cache.$siteHeader.removeClass(config.siteHeaderStickyClass);
     cache.$body.css('padding-top', '');
     cache.$notificationBar.show();
+
+    theme.AjaxCart.closeMiniCart();
   }
 
   function unload() {
