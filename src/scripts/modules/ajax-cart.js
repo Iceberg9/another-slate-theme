@@ -32,6 +32,11 @@ theme.AjaxCart = (function() {
 
   function onClickOpenCart(evt) {
     evt.preventDefault();
+
+    if (config.isOpen) {
+      return;
+    }
+
     getCart();
   }
 
@@ -75,12 +80,21 @@ theme.AjaxCart = (function() {
     }
 
     cache.$miniCart.fadeIn(300);
+
     config.isOpen = true;
+
+    cache.$miniCart.on('click.Cart', function(evt) {
+      evt.stopImmediatePropagation();
+    });
 
     $(document).on('keydown.Cart', function(evt) {
       if (evt.keyCode === 27) {
         closeMiniCart();
       }
+    });
+
+    $('body').on('click.Cart', function() {
+      closeMiniCart();
     });
   }
 
@@ -92,11 +106,17 @@ theme.AjaxCart = (function() {
     cache.$miniCart.fadeOut(300);
     config.isOpen = false;
 
+    cache.$miniCart.off('click.Cart');
     $(document).off('keydown.Cart');
+    $('body').off('click.Cart');
   }
 
   function unload() {
     cache.$openCart.off('click.Cart');
+    cache.$miniCartClose.off('click.Cart');
+    cache.$miniCart.off('click.Cart');
+    $(document).off('keydown.Cart');
+    $('body').off('click.Cart');
   }
 
   return {
