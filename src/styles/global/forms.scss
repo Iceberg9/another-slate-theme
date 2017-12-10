@@ -15,6 +15,7 @@ input:not([type]), input[type="text"], input[type="password"], input[type="date"
 
 input[type="number"] {
   font-style: normal;
+  width: 50px;
 }
 
 textarea {

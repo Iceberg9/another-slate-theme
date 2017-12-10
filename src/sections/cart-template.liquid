@@ -1,0 +1,126 @@
+<script>
+  theme.strings.noStockAvailable = {{ section.settings.stock_unavailable | json }};
+</script>
+
+<div data-section-id="{{ section.id }}" data-section-type="cart-template">
+  {% if cart.item_count > 0 %}
+    <div class="page-header">
+      <h1 class="page-header__title">{{ 'cart.general.title' | t }}</h1>
+      <p class="page-header__subtitle">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+    </div>
+
+    <form action="/cart" method="post" novalidate>
+      <div id="cart-container" class="cart-items">
+        {% for item in cart.items %}
+          <div class="line-item">
+            <div class="line-item__image">
+              <a href="{{ item.url | within: collections.all }}">
+                <img src="{{ item | img_url: '240x240', crop: 'center' }}" alt="{{ item.title | escape }}">
+              </a>
+            </div>
+
+            <div class="line-item__meta">
+              <a href="{{ item.url }}">{{ item.product.title }}</a>
+              {% unless item.product.has_only_default_variant %}
+                <p>{{ item.variant.title }}</p>
+              {% endunless %}
+            </div>
+
+            <div class="line-item__quantity">
+              <input type="number"
+                     name="updates[]"
+                     id="updates_{{ item.key }}"
+                     value="{{ item.quantity }}"
+                     min="0"
+                     data-line="{{ forloop.index }}"
+                     aria-label="{{ 'cart.general.item_quantity' | t }}">
+            </div>
+
+            <div class="line-item__price">
+              {{ item.line_price | money }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <p class="cart-message" data-message>
+        {{ section.settings.footer_message }}
+      </p>
+
+      <div class="cart-footer">
+        <div class="cart-footer__inner">
+          <p class="cart-footer__subtotal">
+            {{ 'cart.general.subtotal' | t }}
+            <span data-subtotal>{{ cart.total_price | money }}</span>
+          </p>
+          <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
+        </div>
+      </div>
+    </form>
+  {% else %}
+    <div class="page-header">
+      <h1 class="page-header__title">{{ 'cart.general.title' | t }}</h1>
+      <p class="page-header__subtitle">{{ 'cart.general.empty' | t }}</p>
+    </div>
+    <p class="px-1 text-center">{{ 'cart.general.continue_browsing_html' | t }}</p>
+  {% endif %}
+</div>
+
+<script id="CartProductTemplate" type="text/template">
+  {% raw %}
+    {{#items}}
+      <div class="line-item">
+        <div class="line-item__image">
+          <a href="{{url}}">
+            <img src="{{img}}" alt="{{name}}">
+          </a>
+        </div>
+
+        <div class="line-item__meta">
+          <a href="{{url}}">{{name}}</a>
+          {{#if variation}}
+            <p>{{variation}}</p>
+          {{/if}}
+        </div>
+
+        <div class="line-item__quantity">
+          <input type="number"
+                 name="updates[]"
+                 id="updates_{{key}}"
+                 value="{{itemQty}}"
+                 min="0"
+                 data-line="{{line}}"
+                 aria-label="{% endraw %}{{ 'cart.label.quantity' | t }}{% raw %}">
+        </div>
+
+        <div class="line-item__price">
+          {{linePrice}}
+        </div>
+      </div>
+    {{/items}}
+  {% endraw %}
+</script>
+
+<script type="application/json" id="CartJson-{{ section.id }}">
+  {{ cart | json }}
+</script>
+
+{% schema %}
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_message",
+        "label": "Footer message",
+        "default": "Free shipping to Mexico on orders over $ 2500.00"
+      },
+      {
+        "type": "text",
+        "id": "stock_unavailable",
+        "label": "Stock unavailable",
+        "default": "The item could not be added to your cart because there are not enough in stock."
+      }
+    ]
+  }
+{% endschema %}

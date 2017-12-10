@@ -23,6 +23,10 @@ window.theme = window.theme || {};
 // =require sections/newsletter-popup.js
 // =require sections/featured-content.js
 // =require sections/lookbook.js
+// =require sections/cart-template.js
+
+/*================ Global ================*/
+// =require global/qty-selector.js
 
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
@@ -45,6 +49,7 @@ $(document).ready(function() {
   sections.register('newsletter-popup', theme.NewsletterPopup);
   sections.register('featured-content', theme.FeaturedContent);
   sections.register('lookbook', theme.Lookbook);
+  sections.register('cart-template', theme.CartTemplate);
 
   // Common a11y fixes
   slate.a11y.pageLinkFocus($(window.location.hash));

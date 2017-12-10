@@ -1,0 +1,97 @@
+.line-item {
+  @include clearfix();
+  margin-bottom: $gallery-gutter;
+
+  @include at-query($min, $extra-small) {
+    @include display-flexbox();
+    @include align-items(center);
+  }
+}
+
+.line-item__image {
+  width: 130px;
+  padding-right: 1rem;
+  float: left;
+
+  @include at-query($min, $extra-small) {
+    float: none;
+  }
+
+  a {
+    @extend %image-link;
+    min-height: 147px;
+    width: 115px;
+  }
+
+  img {
+    @extend %image-link__photo;
+  }
+}
+
+.line-item__meta {
+  @extend %line-item__element;
+
+  @include at-query($min, $extra-small) {
+    width: 40%;
+    padding-right: 1rem;
+  }
+
+  @include media-query($large-up) {
+    width: 44%;
+  }
+
+  a {
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    font-size: $font-size-small;
+    font-style: italic;
+    color: $color-border;
+  }
+}
+
+.line-item__quantity {
+  @extend %line-item__element;
+  margin-top: $gallery-gutter;
+  margin-bottom: $gallery-gutter;
+
+  @include at-query($min, $extra-small) {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100px;
+  }
+
+  input[type="number"] {
+    background: transparent;
+    border: none;
+  }
+
+  .js-qty {
+    @include media-query($large-up) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.line-item__price {
+  @extend %line-item__element;
+
+  @include at-query($min, $extra-small) {
+    width: 100px;
+    text-align: right;
+    @include flex-grow(1);
+  }
+
+  @include media-query($medium-up) {
+    text-align: center;
+  }
+
+  @include media-query($large-up) {
+    width: 150px;
+    text-align: right;
+    padding-right: 3.3rem;
+  }
+}

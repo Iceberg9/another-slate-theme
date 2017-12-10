@@ -75,5 +75,19 @@
   {% section 'footer' %}
   {% section 'newsletter-popup' %}
 
+  <script id="JsQty" type="text/template">
+  {% raw %}
+    <div class="js-qty">
+      <button type="button" class="js-qty__adjust js-qty__adjust--minus">
+        <span>&minus;</span>
+      </button>
+      <input type="text" value="{{value}}" id="{{key}}" name="{{name}}" pattern="[0-9]*" data-line="{{line}}" class="js-qty__num" aria-live="polite">
+      <button type="button" class="js-qty__adjust js-qty__adjust--plus">
+        <span>+</span>
+      </button>
+    </div>
+  {% endraw %}
+  </script>
+
 </body>
 </html>

@@ -19,6 +19,7 @@
 // =require vendor/modal.min.js
 // =require vendor/query-params.js
 // =require vendor/js.cookie.min.js
+// =require vendor/handlebars.min.js
 
 // Attempts to preserve comments that likely contain licensing information,
 // even if the comment does not have directives such as `@license` or `/*!`.
